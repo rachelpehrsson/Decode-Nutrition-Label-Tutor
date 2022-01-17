@@ -1,0 +1,68 @@
+.paged-element{
+	display:block;
+}
+
+#continue{
+	background-color: #c7edfc;
+	width: 68px;
+    height: 68px;
+}
+
+#continue button{
+	background-color: #c7edfc;
+	font-size: small;
+	    border: 1px solid rgb(47 110 182);
+    border-radius: 5px;
+}
+
+#continue button:hover{
+	background-color: #91e0ff;
+}
+
+#infoSidebar{
+	background-color: rgb(108 172 103);
+    display: inline-block;
+    height: 100%;
+    width: 160px;
+    position: relative;
+}
+
+
+.popup{
+	width: 300px;
+	/*height: 250px;*/
+	background-color: white;
+	z-index: 10;
+	left: 40%;
+	top: 25%;
+	position:absolute;
+	box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+}
+
+.content{
+	padding: 10px;
+}
+
+.close:hover{
+	cursor: pointer;
+}
+
+.header{
+	width: 95%;
+    padding: 5px 5px;
+    justify-content: end;
+    display: inline-flex;
+}
+
+#ctatdiv118{
+	display: none;
+}
+
+#infoSidebar .CTATTextArea{
+	box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;
+}
+
+.info{
+	    padding: 10px;
+    color: white;
+}
