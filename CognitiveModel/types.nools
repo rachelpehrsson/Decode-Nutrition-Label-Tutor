@@ -1,0 +1,191 @@
+define Problem {
+	name: null,
+	subgoal: null,
+	chosenFood: null, 
+	ieFoodChoice:[],
+	task1InterfaceGroup: null,
+	task2InterfaceGroup: null, 
+	task31InterfaceGroup: null, 
+	task32InterfaceGroup: null,
+	task33InterfaceGroup: null,
+	constructor: function(n, ieFoodChoice) {
+		this.name = n;
+		this.subgoal = "chooseFood";
+		this.ieFoodChoice = ieFoodChoice;
+		this.task1InterfaceGroup = "task1InterfaceGroup";
+		this.task2InterfaceGroup = "task2InterfaceGroup";
+		this.task31InterfaceGroup = "task31InterfaceGroup";
+		this.task32InterfaceGroup = "task32InterfaceGroup";
+		this.task33InterfaceGroup = "task33InterfaceGroup";
+	}
+}
+
+define FoodData{
+	name: null,
+	selector:null,
+	servingsPerContainer: null,
+	caloriesPerServing: null,
+	fatGrams:null, 
+	proteinGrams:null,
+	carbGrams: null,
+	healthPointsAdded: [],
+	healthPointsSubtracted:[],
+	imagePath:null,
+	constructor: function (name, selector, servingsPerContainer,caloriesPerServing, fatGrams, proteinGrams, carbGrams, healthPointsAdded, healthPointsSubtracted, imagePath){
+		this.name = name; 
+		this.selector = selector;
+		this.servingsPerContainer = servingsPerContainer;
+		this.caloriesPerServing = caloriesPerServing;
+		this.fatGrams = fatGrams;
+		this.proteinGrams = proteinGrams;
+		this.carbGrams = carbGrams;
+		this.healthPointsAdded = healthPointsAdded;
+		this.healthPointsSubtracted = healthPointsSubtracted;
+		this.imagePath = imagePath;
+	}
+}
+
+define Task1InterfaceGroup{
+	name:null,
+	ieYesHealth:null, 
+	ieNoHealth:null,
+	ieServings1:null,
+	ieServings2:null,
+	ieCaloriesPerServ:null, 
+	ieTotalCalories:null,
+	constructor: function(ieYesHealth, ieNoHealth,ieServings1,ieServings2, ieCaloriesPerServ, ieTotalCalories){
+		this.name = "task1InterfaceGroup";
+		this.ieYesHealth = ieYesHealth;
+		this.ieNoHealth = ieNoHealth;
+		this.ieServings1 = ieServings1;
+		this.ieServings2 = ieServings2;
+		this.ieCaloriesPerServ = ieCaloriesPerServ; 
+		this.ieTotalCalories = ieTotalCalories;
+	}
+}
+
+define Task2InterfaceGroup{
+	name:null,
+	interfaceRows:[],
+	ieNutrient:null,
+	constructor: function(interfaceRows, ieNutrient){
+		this.name = "task2InterfaceGroup";
+		this.interfaceRows = interfaceRows;
+		this.ieNutrient = ieNutrient;
+	}
+}
+
+/*ieVA:null, 
+	ieVC:null, 
+	ieCalcium:null,
+	ieIron:null, 
+	ieFiber:null, 
+	ieProtein:null, 
+	ieCalSugar:null,*/ 
+define Task31InterfaceGroup{
+	name:null,
+	ieTotal:null,
+	ieYesNo:[],
+	constructor: function(/*ieVA, ieVC, ieCalcium,ieIron, ieFiber, ieProtein,ieCalSugar,*/ ieYesNo, ieTotal){
+		this.name = "task31InterfaceGroup";
+		/*this.ieVA = ieVA;
+		this.ieVC = ieGramsProtein;
+		this.ieCalcium = ieCalcium;
+		this.ieIron = ieIron;
+		this.ieFiber = ieFiber;
+		this.ieProtein = ieProtein;
+		this.ieCalSugar = ieCalSugar;*/
+		this.ieYesNo = ieYesNo;
+		this.ieTotal = ieTotal;
+	}
+}
+
+define Task32InterfaceGroup{
+	name:null,
+	ie200Fat:null, 
+	ieChlSodSugar:null, 
+	ieTotalRed:null,
+	constructor: function(ie200Fat, ieChlSodSugar, ieTotalRed){
+		this.ie200Fat = ie200Fat; 
+		this.ieChlSodSugar = ieChlSodSugar; 
+		this.ieTotalRed = ieTotalRed;
+	}
+}
+
+define Task33InterfaceGroup{
+	name:null,
+	ieTotalHealthy:null,
+	ieTotalUnhealthy: null,
+	ieHealthy2:null, 
+	ieUnhealthy2:null, 
+	ieNetPoints:null,
+	ieYesHealth2:null, 
+	ieNoHealth2:null,
+	constructor: function(ieTotalHealthy, ieTotalUnhealthy,ieHealthy2, ieUnhealthy2,  ieNetPoints, ieYesHealth2, ieNoHealth){
+		this.ieTotalHealthy = ieTotalHealthy;
+		this.ieTotalUnhealthy = ieTotalUnhealthy;
+		this.ieHealthy2 = ieHealthy2;
+		this.ieUnhealthy2 = ieUnhealthy2;
+		this.ieNetPoints = ieNetPoints;
+		this.ieYesHealth2 = ieYesHealth2;
+		this.ieNoHealth2 = ieNoHealth;
+	}
+}
+
+define interfaceElement {
+	name: null,
+	value: null,
+	constructor: function(n, v) {
+		this.name = n;
+		this.value = v;
+	}
+}
+
+define interfaceRow {
+	name: null,
+	ieGrams: null,
+	ieCalGram: null,
+	ieCal: null,
+	constructor: function(n, ieg, iecg, iec) {
+		this.name = n;
+		this.ieGrams = ieg;
+		this.ieCalGram = iecg;
+		this.ieCal = iec;
+	}
+}
+
+define StudentValues {
+	selection: null,
+	action: null,
+	input: null,
+	constructor: function(s, a, i) {
+		this.selection = s;
+		this.action = a;
+		this.input = i;
+	}
+}
+
+define TPA {
+	selection: null,
+	action: null,
+	input: null,
+	constructor: function(s, a, i) {
+		this.selection = s;
+		this.action = a;
+		this.input = i;
+	}
+}
+
+define Hint {
+	precedence: 0,
+	msg: "",
+	constructor: function(m, optPrecedence) {
+		this.msg = m;
+		this.precedence = optPrecedence || 0;
+	}
+}
+
+define IsHintMatch {
+       constructor: function() {
+       }
+}

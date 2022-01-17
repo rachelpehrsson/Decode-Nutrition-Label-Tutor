@@ -1,0 +1,801 @@
+import("types.nools");
+
+rule bootstrap{
+	when {
+		b: Boolean b === true from true;
+	}
+	then {
+		document.getElementById("task1Page").style.display = "none";
+		document.getElementById("task2Page").style.display = "none";
+		document.getElementById("task3-1Page").style.display = "none";
+		document.getElementById("task3-2Page").style.display = "none";
+		document.getElementById("task3-3Page").style.display = "none";
+		//FoodData
+
+		assert(new TPA("ctatdiv120", "UpdateTextArea", "Carbohydrates"));
+		assert(new TPA("ctatdiv124", "UpdateTextArea", "Calories"));
+		assert(new TPA("ctatdiv128", "UpdateTextArea", "Proteins"));
+		assert(new TPA("ctatdiv132", "UpdateTextArea", "Irons"));
+		assert(new TPA("ctatdiv136", "UpdateTextArea", "Fiber"));
+		assert(new TPA("ctatdiv140", "UpdateTextArea", "Cholesterol"));
+		assert(new TPA("ctatdiv144", "UpdateTextArea", "Sodium"));
+		assert(new TPA("ctatdiv148", "UpdateTextArea", "Serving Size"));
+		assert(new TPA("ctatdiv152", "UpdateTextArea", "Vitamin D"));
+		assert(new TPA("ctatdiv156", "UpdateTextArea", "Fat"));
+		assert(new TPA("ctatdiv160", "UpdateTextArea", "Vitamin C"));
+		//assert(new TPA("ctatdiv88", "UpdateTextArea", "Sugars"));
+
+		//page 1 interface group
+		assert(new interfaceElement("ctatdiv3", null));
+		assert(new interfaceElement("cerealradio", null));
+		assert(new interfaceElement("chipsradio", null));
+		assert(new interfaceElement("soupradio", null));
+		assert(new interfaceElement("cookiesradio", null));
+		assert(new interfaceElement("candyradio", null));
+		assert(new interfaceElement("pbradio", null));
+		assert(new interfaceElement("macradio", null));
+
+		var foodChoices = ["ctatdiv3", "cerealradio", "chipsradio", "soupradio", "cookiesradio", "candyradio", "pbradio", "macradio"];
+
+		//assert(new TPA("cereal", "UpdateTextArea", food2.name));
+		assert(new TPA("pizzaimage", "assignImage", food1.coverImage));
+		assert(new TPA("cerealimage", "assignImage", food2.imagePath));
+		document.getElementById("cerealimage").style.display = "block";
+		assert(new TPA("chipsimage", "assignImage", food3.coverImage));
+		assert(new TPA("soupimage", "assignImage", food4.coverImage));
+		assert(new TPA("cookiesimage", "assignImage", food5.coverImage));
+		assert(new TPA("Candypacketimage", "assignImage", food6.coverImage));
+		assert(new TPA("peanutbutterimage", "assignImage", food7.imagePath));
+		assert(new TPA("macandcheeseimage", "assignImage", food8.coverImage));
+
+		//foodData
+		assert(new FoodData(food1.name, food1.selector, food1.servingsPerContainer, food1.caloriesPerServing, food1.fatGrams, 
+			food1.proteinGrams, food1.carbGrams, food1.healthPointsAdded, food1.healthPointsSubtracted, food1.imagePath));
+		assert(new FoodData(food2.name, food2.selector, food2.servingsPerContainer, food2.caloriesPerServing, food2.fatGrams, 
+			food2.proteinGrams, food2.carbGrams, food2.healthPointsAdded, food2.healthPointsSubtracted, food2.imagePath));
+		assert(new FoodData(food3.name, food3.selector, food3.servingsPerContainer, food3.caloriesPerServing, food3.fatGrams, 
+			food3.proteinGrams, food3.carbGrams, food3.healthPointsAdded, food3.healthPointsSubtracted, food3.imagePath));
+		assert(new FoodData(food4.name, food4.selector, food4.servingsPerContainer, food4.caloriesPerServing, food4.fatGrams, 
+			food4.proteinGrams, food4.carbGrams, food4.healthPointsAdded, food4.healthPointsSubtracted, food4.imagePath));
+		assert(new FoodData(food5.name, food5.selector, food5.servingsPerContainer, food5.caloriesPerServing, food5.fatGrams, 
+			food5.proteinGrams, food5.carbGrams, food5.healthPointsAdded, food5.healthPointsSubtracted, food5.imagePath));
+		assert(new FoodData(food6.name, food6.selector, food6.servingsPerContainer, food6.caloriesPerServing, food6.fatGrams, 
+			food6.proteinGrams, food6.carbGrams, food6.healthPointsAdded, food6.healthPointsSubtracted, food6.imagePath));
+		assert(new FoodData(food7.name, food7.selector, food7.servingsPerContainer, food7.caloriesPerServing, food7.fatGrams, 
+			food7.proteinGrams, food7.carbGrams, food7.healthPointsAdded, food7.healthPointsSubtracted, food7.imagePath));
+		assert(new FoodData(food8.name, food8.selector, food8.servingsPerContainer, food8.caloriesPerServing, food8.fatGrams, 
+			food8.proteinGrams, food8.carbGrams, food8.healthPointsAdded, food8.healthPointsSubtracted, food8.imagePath));
+
+		
+		//task1InterfaceGroup
+		assert(new interfaceElement("yesradio", null));
+		assert(new interfaceElement("noradio", null));
+		assert(new interfaceElement("numServings1", null));
+		assert(new interfaceElement("numServings2", null));
+		assert(new interfaceElement("calPerServe", null));
+		assert(new interfaceElement("totalCal", null));
+		
+		document.getElementById("ctatdiv13").style.width= "190px";
+		document.getElementById("ctatdiv13").style.left= "195px";
+		document.getElementById("ctatdiv13").style.height= "65%";
+
+		assert(new Task1InterfaceGroup("yesradio", "noradio", "numServings1", "numServings2", "calPerServe", "totalCal"));
+
+
+		//task2InterfaceGroup
+		assert(new interfaceElement("fatGrams", null));
+		assert(new interfaceElement("proteinGrams", null));
+		assert(new interfaceElement("carbGrams", null));
+		assert(new interfaceElement("calFatGrams", null));
+		assert(new interfaceElement("calFat", null));
+		assert(new interfaceElement("calProteinGrams", null));
+		assert(new interfaceElement("calCarbGrams", null));
+		assert(new interfaceElement("calProtein", null));
+		assert(new interfaceElement("calCarb", null));
+		assert(new interfaceElement("mostCal", null));
+		
+		document.getElementById("foodImage").style.width= "190px";
+		document.getElementById("foodImage").style.left= "195px";
+		document.getElementById("foodImage").style.height= "65%";
+
+		assert(new interfaceRow("fat", "fatGrams", "calFatGrams", "calFat"));
+		assert(new interfaceRow("protein", "proteinGrams", "calProteinGrams","calProtein"));
+		assert(new interfaceRow("carbohydrate", "carbGrams", "calCarbGrams", "calCarb"));
+
+		assert(new Task2InterfaceGroup(["fat", "protein", "carbohydrate"], "mostCal"));
+
+		//task31InterfaceGroup 
+		assert(new interfaceElement("vitAresponse", null));
+		assert(new interfaceElement("vitCresponse", null));
+		assert(new interfaceElement("calciumresponse", null));
+		assert(new interfaceElement("ironresponse", null));
+		assert(new interfaceElement("fiberresponse", null));
+		assert(new interfaceElement("proteinresponse", null));
+		assert(new interfaceElement("caloriesresponse", null));
+		assert(new interfaceElement("total", null));
+		document.getElementById("ctatdiv31").style.width= "190px";
+		document.getElementById("ctatdiv31").style.left= "195px";
+		document.getElementById("ctatdiv31").style.height= "65%";
+
+		assert(new Task31InterfaceGroup(["vitAresponse", "vitCresponse", "calciumresponse","ironresponse", "fiberresponse", "proteinresponse","caloriesresponse"], "total"));
+
+		//task32InterfaceGroup
+		assert(new interfaceElement("200caloriesresponse", null));
+		assert(new interfaceElement("cholestrolsodiumresponse", null));
+		assert(new interfaceElement("totalunhealthy", null));
+		document.getElementById("ctatdiv32").style.width= "190px";
+		document.getElementById("ctatdiv32").style.left= "195px";
+		document.getElementById("ctatdiv32").style.height= "65%";
+
+
+		assert(new Task32InterfaceGroup("200caloriesresponse", "cholestrolsodiumresponse", "totalunhealthy"));
+
+		//task33InterfaceGroup
+		assert(new interfaceElement("totalhealthycalc", null));
+		assert(new interfaceElement("totalunhealthycalc", null));
+		assert(new interfaceElement("healthy", null));
+		assert(new interfaceElement("unhealthy", null));
+		assert(new interfaceElement("netpoints", null));
+		assert(new interfaceElement("yesbutton", null));
+		assert(new interfaceElement("nobutton", null));
+		document.getElementById("ctatdiv33").style.width= "190px";
+		document.getElementById("ctatdiv33").style.left= "195px";
+		document.getElementById("ctatdiv33").style.height= "65%";
+
+		assert(new Task33InterfaceGroup("totalhealthycalc","totalunhealthycalc","healthy","unhealthy","netpoints","yesbutton","nobutton"));
+
+		assert(new Problem("nutrition tester", foodChoices));
+
+		setProblemAttribute("use_backtracking", true);
+		setProblemAttribute("use_hint_fact", true);
+		halt();
+
+	}
+}
+
+rule selectFood{
+	when{
+		p:Problem p.subgoal=="chooseFood";
+		sv:StudentValues sv.selection == "radioButtonGroup" {input: inp};
+		f:FoodData f.selector == inp {name: food, imagePath:image} 
+	}
+	then{
+		modify(p, "chosenFood", food);
+		modify(p,"subgoal","task1");
+		document.getElementById("chooseFoodPage").style.display = "none";
+		document.getElementById("task1Page").style.display = "block";
+		document.getElementById("ctatdiv13").src= image;
+		halt();
+	}
+
+}
+
+/******TASK 1******/
+
+/*rule chooseIfHealthy{
+	when{
+	p:Problem p.subgoal=="task1" {chosenFood:food};
+	sv:StudentValues selection=="radioButtonGroup" {input:healthy};
+	ie:interfaceElement (ie.name=="yesradio"||ie.name=="noradio") && ie.value == null{name:sel}
+	}
+	then{
+
+	}
+}*/
+
+rule enterServings{
+	when{
+		p:Problem p.subgoal=="task1" {chosenFood:food};
+		f:FoodData f.name == food {servingsPerContainer: servings};
+		ie:interfaceElement (ie.name=="numServings1"||ie.name=="numServings2") && ie.value == null{name:sel};
+	}
+	then{
+		assert(new Hint("Look closely, this information is mentioned on the nutrition facts label."));
+		assert(new Hint("If you look at the top part of the nutrition label, you will see the number of servings per container."));
+		assert(new Hint("Please enter "+servings+" servings per container."));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: servings})) {
+			modify(ie, "value", servings);
+			halt();
+		}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule enterCalPerServing{
+	when{
+		p:Problem p.subgoal=="task1" {chosenFood:food};
+		f:FoodData f.name == food {caloriesPerServing: calPerServe};
+		t1:Task1InterfaceGroup {ieCaloriesPerServ: ieName};
+		ie:interfaceElement ie.name == ieName && ie.value == null{name:sel};
+	}
+	then{
+		assert(new Hint("How many calories per serving does this food item have?"));
+		assert(new Hint("This information is mentioned on the nutrition label."));
+		assert(new Hint("If you look at the top part of the nutrition label, you will see the number of calories per serving written in bold."));
+		assert(new Hint("Please enter "+calPerServe));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: calPerServe})) {
+			modify(ie, "value", calPerServe);
+			setSuccessOrBugMsg("Correct! Let's move onto the next task");
+			//halt();
+		}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule enterTotalCal{
+	when{
+		p:Problem p.subgoal=="task1" {chosenFood:food};
+		f:FoodData f.name == food {caloriesPerServing: calPerServe, servingsPerContainer: servings};
+		t1:Task1InterfaceGroup {ieTotalCalories: ieName, ieCaloriesPerServ: ieCPS, ieServings2:ieS2};
+		ie:interfaceElement ie.name == ieName && ie.value == null {name:sel};
+		cps:interfaceElement cps.name == ieCPS && cps.value!=null;
+		s2:interfaceElement s2.name == ieS2 && s2.value!=null;
+	}
+	then{
+		let inp = calPerServe*servings;
+			assert(new TPA(sel, "UpdateTextField", inp));
+			modify(ie, "value", inp);
+			modify(p, "subgoal", "task1Done");
+
+			halt();
+		
+	}
+}
+
+//Poss 4th rule - when 1 of factors have been entered, calls halt
+//on agenda at same time of either rules - lower salience, calls halt
+//calculate calories subgoal
+//finish entry - 
+
+/*******TASK 2*******/
+
+rule enterGrams{
+	when{
+		p:Problem p.subgoal=="task2"{chosenFood:food};
+		f:FoodData f.name == food {fatGrams:fatGrams, proteinGrams:proteinGrams,carbGrams: carbGrams};
+		t2:Task2InterfaceGroup {interfaceRows: nutrients};
+		ir:interfaceRow ir.name in nutrients {name:nutrient, ieGrams: ieGram};
+		ie:interfaceElement ie.name == ieGram && ie.value == null{name:sel};
+	}
+	then{
+		
+			let input = "";
+			if(nutrient == "protein")
+				input = proteinGrams;
+			else if(nutrient == "fat")
+				input = fatGrams;
+			else
+				input = carbGrams;
+		assert(new Hint("Include the grams of total "+nutrient+" that you see on the label"));
+		assert(new Hint("Total grams of"+nutrient+", per serving, for this food item is"+input));
+			if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule enterCaloriesPerGram{
+	when{
+		p:Problem p.subgoal=="task2"{chosenFood:food};
+		t2:Task2InterfaceGroup {interfaceRows: nutrients};
+		ir:interfaceRow ir.name in nutrients {name:nutrient, ieCalGram: ieCalGram};
+		ie:interfaceElement ie.name == ieCalGram && ie.value == null{name:sel};
+	}
+	then{
+			let input;
+			if(nutrient == "protein")
+				input = 4;
+			else if(nutrient == "fat")
+				input = 9;
+			else
+				input = 4;
+			assert(new Hint("Input the calories per gram of "+nutrient+" that you see above"));
+		assert(new Hint("Please enter "+input));
+			if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				//halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule calcNutrientCalories{
+	when{
+		p:Problem p.subgoal=="task2"{chosenFood:food};
+		t2:Task2InterfaceGroup {interfaceRows: nutrients};
+		ir:interfaceRow ir.name in nutrients {name:nutrient, ieCalGram: ieCalGram, ieGrams:ieGrams, ieCal: ieCal};
+		ieg:interfaceElement ieg.name == ieGrams &&  ieg.value != null{value:grams};
+		iecpg:interfaceElement iecpg.name == ieCalGram &&  iecpg.value != null{value:caloriespergram};
+		ie:interfaceElement ie.name == ieCal && ie.value == null{name:sel};
+	}
+	then{
+		let input = caloriespergram * grams;
+		console.log(input);
+		assert(new TPA(sel, "UpdateTextField", input));
+		modify(ie, "value", input);
+		halt();
+	}
+}
+
+rule mostContribute{
+	when{
+		p:Problem p.subgoal=="task2"{chosenFood:food};
+		t2:Task2InterfaceGroup {interfaceRows: nutrients, ieNutrient:ieNutrient};
+		ir1:interfaceRow ir1.name in nutrients {name:name1, ieCal: ieCal1};
+		ie1:interfaceElement ie1.name == ieCal1 && ie1.value != null{value:opt1};
+		ir2:interfaceRow ir2.name in nutrients && ir2.name!= name1 {name:name2, ieCal: ieCal2};
+		ie2:interfaceElement ie2.name == ieCal2 && ie2.value != null && ie2.value >= opt1{value:opt2};
+		ir3:interfaceRow ir3.name in nutrients && ir3.name!= name1 && ir3.name!= name2 {name:name3, ieCal: ieCal3};
+		ie3:interfaceElement ie3.name == ieCal3 && ie3.value != null && ie3.value >= opt1 && ie3.value >= opt2{value:opt2};
+		ieN: interfaceElement ieN.name == ieNutrient{name:sel};
+	}
+	then{
+		assert(new Hint("Based on your calculations above, which nutrient contributes to the overall calories the most?"));
+		assert(new Hint("Based on your calculations above, which is the highest value?"));
+		assert(new Hint("Enter "+name3));
+		var inp = name3.charAt(0).toUpperCase() + name3.slice(1);
+		console.log(inp);
+		if(checkSAI({selection: sel, action: "UpdateComboBox", input: inp})) {
+			modify(ieN, "value", name3);
+			modify(p, "subgoal", "task2Done");
+			setSuccessOrBugMsg("Correct! Let's move onto the next task");
+			halt();
+		}else{
+			backtrack();
+		}
+	}
+}
+
+/******TASK3-1*****/
+
+/*rule enterYesNo{
+	when{
+		p:Problem p.subgoal == "task31" || p.subgoal == "task31-halt" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:points};
+		t31:Task31InterfaceGroup {ieYesNo: foodPoints};
+		sv:StudentValues sv.action == "UpdateTextField" {selection: entered};
+		ie: interfaceElement ie.name in foodPoints && ie.name == entered && ie.value == null {name:sel};
+	}
+	then{
+		let input = points[foodPoints.indexOf(sel)];
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				modify(p, "subgoal", "task31-gethalt");
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}*/
+rule enterYesNo1{
+	when{
+		p:Problem p.subgoal == "task31" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:points};
+		t31:Task31InterfaceGroup {ieYesNo: foodPoints};
+		//sv:StudentValues sv.action == "UpdateTextField" {selection: entered};
+		ie: interfaceElement ie.name == foodPoints[0] && ie.value == null {name:sel};
+	}
+	then{
+		let input = points[foodPoints.indexOf(sel)];
+		assert(new Hint("Check this information on the food label. If you don’t see Vitamin A mentioned anywhere, you can type in 0."));
+		assert(new Hint("Is there 10% or more Vitamin A? Type “1” if yes or “0” if no."));
+		assert(new Hint("Enter "+input));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule enterYesNo2{
+	when{
+		p:Problem p.subgoal == "task31" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:points};
+		t31:Task31InterfaceGroup {ieYesNo: foodPoints};
+		//sv:StudentValues sv.action == "UpdateTextField" {selection: entered};
+		ie: interfaceElement ie.name  == foodPoints[1] && ie.value == null {name:sel};
+	}
+	then{
+		let input = points[foodPoints.indexOf(sel)];
+		assert(new Hint("Check this information on the food label. If you don’t see Vitamin C mentioned anywhere, you can type in 0"));
+		assert(new Hint("Is there 10% or more Vitamin C? Type “1” if yes or “0” if no."));
+		assert(new Hint("Enter "+input));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule enterYesNo3{
+	when{
+		p:Problem p.subgoal == "task31" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:points};
+		t31:Task31InterfaceGroup {ieYesNo: foodPoints};
+		sv:StudentValues sv.action == "UpdateTextField" {selection: entered};
+		ie: interfaceElement ie.name  == foodPoints[2] && ie.name == entered && ie.value == null {name:sel};
+	}
+	then{
+		let input = points[foodPoints.indexOf(sel)];
+		assert(new Hint("Check this information on the food label. If you don’t see Calcium mentioned anywhere, you can type in 0"));
+		assert(new Hint("Is there 10% or more Calcium? Type “1” if yes or “0” if no."));
+		assert(new Hint("Enter "+input));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+rule enterYesNo4{
+	when{
+		p:Problem p.subgoal == "task31" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:points};
+		t31:Task31InterfaceGroup {ieYesNo: foodPoints};
+		sv:StudentValues sv.action == "UpdateTextField" {selection: entered};
+		ie: interfaceElement ie.name  == foodPoints[3] && ie.name == entered && ie.value == null {name:sel};
+	}
+	then{
+		let input = points[foodPoints.indexOf(sel)];
+		assert(new Hint("Check this information on the food label. If you don’t see Iron mentioned anywhere, you can type in 0"));
+		assert(new Hint("Is there 10% or more Iron? Type “1” if yes or “0” if no."));
+		assert(new Hint("Enter "+input));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+rule enterYesNo5{
+	when{
+		p:Problem p.subgoal == "task31" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:points};
+		t31:Task31InterfaceGroup {ieYesNo: foodPoints};
+		sv:StudentValues sv.action == "UpdateTextField" {selection: entered};
+		ie: interfaceElement ie.name  == foodPoints[4] && ie.name == entered && ie.value == null {name:sel};
+	}
+	then{
+		let input = points[foodPoints.indexOf(sel)];
+		assert(new Hint("Check this information on the food label. If you don’t see fiber mentioned anywhere, you can type in 0"));
+		assert(new Hint("Is there 10% or more fiber? Type “1” if yes or “0” if no."));
+		assert(new Hint("Enter "+input));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule enterYesNo6{
+	when{
+		p:Problem p.subgoal == "task31" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:points};
+		t31:Task31InterfaceGroup {ieYesNo: foodPoints};
+		sv:StudentValues sv.action == "UpdateTextField" {selection: entered};
+		ie: interfaceElement ie.name  == foodPoints[5] && ie.name == entered && ie.value == null {name:sel};
+	}
+	then{
+		let input = points[foodPoints.indexOf(sel)];
+		assert(new Hint("You identified the number of grams of proteins on the previous page. Identify that again and type “1” if the number of grams of proteins is less than 5 and “0” if it is more than 5."));
+		assert(new Hint("Enter "+input));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule enterYesNo7{
+	when{
+		p:Problem p.subgoal == "task31" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:points};
+		t31:Task31InterfaceGroup {ieYesNo: foodPoints};
+		sv:StudentValues sv.action == "UpdateTextField" {selection: entered};
+		ie: interfaceElement ie.name  == foodPoints[6] && ie.name == entered && ie.value == null {name:sel};
+	}
+	then{
+		let input = points[foodPoints.indexOf(sel)];
+		assert(new Hint("Only type “1” if both are true- if the food item has 70 calories or less AND 5 grams or less of sugar. Type 0 if even one condition is not met."));
+		assert(new Hint("Enter "+input));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+		
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+//create new rule for end to call halt
+/*rule callYesNoHalt{
+	salience:-2;
+	when{
+		p:Problem p.subgoal == "task31-gethalt" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:points};
+		t31:Task31InterfaceGroup {ieYesNo: foodPoints};
+		sv:StudentValues sv.action == "UpdateTextField" {selection: entered};
+		ie: interfaceElement ie.name in foodPoints && ie.name == entered && ie.value == null {name:sel};
+	}
+	then{
+		console.log("halt called");
+		
+		modify(p, "subgoal", "task31-halt");
+		halt();
+	}
+}
+*/
+rule calcTotalHealthy{
+	when{
+		p:Problem p.subgoal == "task31" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:points};
+		t31:Task31InterfaceGroup {ieYesNo: foodPoints};
+		ie1: interfaceElement ie1.name == foodPoints[0] && ie1.value != null;
+		ie2: interfaceElement ie2.name == foodPoints[1] && ie2.value != null;
+		ie3: interfaceElement ie3.name == foodPoints[2] && ie3.value != null;
+		ie4: interfaceElement ie4.name == foodPoints[3] && ie4.value != null;
+		ie5: interfaceElement ie5.name == foodPoints[4] && ie5.value != null;
+		ie6: interfaceElement ie6.name == foodPoints[5] && ie6.value != null;
+		ie7: interfaceElement ie7.name == foodPoints[6] && ie7.value != null;
+	}
+	then{
+		console.log("hooray!");
+		assert(new TPA("total", "UpdateTextField", points.reduce((a, b) => a + b, 0)));
+		modify(p, "subgoal", "task31Done");
+		setSuccessOrBugMsg("Correct! Let's move onto the next task");
+		halt();
+	}
+}
+/******TASK3-2*****/
+rule enterYesNo200{
+	when{
+		p:Problem p.subgoal == "task32" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsSubtracted:points};
+		t32:Task32InterfaceGroup {ie200Fat: ie200};
+		ie: interfaceElement ie.name == ie200 && ie.value == null {name:sel};
+	}
+	then{
+		let input = points[0];
+		assert(new Hint("Type “1” even if one of the situations is true- if the number of calories is over 200 OR there is 10% or more fat."
+			+" Also type “1” if both are true. Type 0 if none of these are true."));
+		assert(new Hint("Enter "+input));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule enterYesNoAny{
+	when{
+		p:Problem p.subgoal == "task32" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsSubtracted:points};
+		t32:Task32InterfaceGroup {ieChlSodSugar: ieCSS};
+		ie: interfaceElement ie.name == ieCSS && ie.value == null {name:sel};
+	}
+	then{
+		let input = points[1];
+		assert(new Hint("Type “1” even if one of the situations is true- if there is 10% or more cholesterol OR 10% sodium OR 10 "
+			+"grams or more of sugar. Also type “1” if two or more are true. Type 0 if none of these are true."));
+		assert(new Hint("Enter "+input));
+		if(checkSAI({selection: sel, action: "UpdateTextField", input: input})) {
+				modify(ie, "value", input);
+				//halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule calcTotalUnealthy{
+	when{
+		p:Problem p.subgoal == "task32" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsSubtracted:points};
+		t32:Task32InterfaceGroup {ie200Fat: ie200, ieChlSodSugar: ieCSS, ieTotalRed: total};
+		ie1: interfaceElement ie1.name == ie200 && ie1.value != null;
+		ie2: interfaceElement ie2.name == ieCSS && ie2.value != null;
+	}
+	then{
+		assert(new TPA(total, "UpdateTextField", points.reduce((a, b) => a + b, 0)));
+		modify(p, "subgoal", "task32Done");
+		setSuccessOrBugMsg("Correct! Let's move onto the next task");
+		halt();
+	}
+}
+
+/******TASK3-3*****/
+
+/*rule enterCalculations{
+	when{
+		p:Problem p.subgoal == "task33" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:addpoints, healthPointsSubtracted:subpoints};
+		t33:Task33InterfaceGroup {ieTotalHealthy:th1,ieTotalUnhealthy: tu1,ieHealthy2:th2, ieUnhealthy2:tu2, ieNetPoints:np};
+	}
+	then{
+		var totalHealthy = addpoints.reduce((a, b) => a + b, 0);
+		var totalunhealthy = subpoints.reduce((a, b) => a + b, 0);
+		var net = totalHealthy - totalunhealthy;
+		assert(new TPA(th1, "UpdateTextField", totalHealthy));
+		assert(new TPA(tu1, "UpdateTextField", totalunhealthy));
+		assert(new TPA(th2, "UpdateTextField", totalHealthy));
+		assert(new TPA(tu2, "UpdateTextField", totalunhealthy));
+		assert(new TPA(np, "UpdateTextField", net));
+		modify(p, "subgoal", "task33Done");
+		halt();
+	}
+}*/
+
+rule enterTotalHealthy{
+	when{
+		p:Problem p.subgoal == "task33" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:addpoints, healthPointsSubtracted:subpoints};
+		t33:Task33InterfaceGroup {ieHealthy2:th2};
+		sv: StudentValues sv.selection == th2;
+		ie:interfaceElement ie.name == th2{name:sel};
+	}
+	then{
+		var input = addpoints.reduce((a, b) => a + b, 0);
+		if(checkSAI({selection: sel, action: "UpdateTextArea", input: input})) {
+				modify(ie, "value", input);
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule enterTotalUnealthy{
+	when{
+		p:Problem p.subgoal == "task33" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:addpoints, healthPointsSubtracted:subpoints};
+		t33:Task33InterfaceGroup {ieUnhealthy2:tu2};
+		sv: StudentValues sv.selection == tu2;
+		ie:interfaceElement ie.name == tu2{name:sel};
+	}
+	then{
+		var input = subpoints.reduce((a, b) => a + b, 0);
+		if(checkSAI({selection: sel, action: "UpdateTextArea", input: input})) {
+				modify(ie, "value", input);
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+rule enterNet{
+	when{
+		p:Problem p.subgoal == "task33" {chosenFood: food};
+		f:FoodData f.name == food {healthPointsAdded:addpoints, healthPointsSubtracted:subpoints};
+		t33:Task33InterfaceGroup { ieNetPoints:np};
+		sv: StudentValues sv.selection == np;
+		ie:interfaceElement ie.name == np{name:sel};
+	}
+	then{
+		var totalHealthy = addpoints.reduce((a, b) => a + b, 0);
+		var totalunhealthy = subpoints.reduce((a, b) => a + b, 0);
+		var input = totalHealthy - totalunhealthy;
+		if(checkSAI({selection: sel, action: "UpdateTextArea", input: input})) {
+				modify(ie, "value", input);
+				modify(p, "subgoal", "task33Done");
+				halt();
+			}
+		else{
+			backtrack();
+		}
+	}
+}
+
+
+/******DONE********/
+
+rule Continue{
+	when{
+		p: Problem p.subgoal == "task1Done" || p.subgoal == "task2Done" || p.subgoal == "task31Done" || p.subgoal == "task32Done"{chosenFood: food,subgoal: subgoal};
+		f:FoodData f.name == food {healthPointsAdded:addpoints, healthPointsSubtracted:subpoints, imagePath:image};
+		t33:Task33InterfaceGroup {ieTotalHealthy:th1,ieTotalUnhealthy: tu1,ieHealthy2:th2, ieUnhealthy2:tu2, ieNetPoints:np};
+	}
+	then{
+		let predictedSAI = {
+           		 selection: "continue",
+          		 action: "ButtonPressed",
+            	 input: "don't_care"
+        	};
+       		 if(checkSAI(predictedSAI)){
+       		 	if(subgoal=="task1Done"){
+			modify(p,"subgoal","task2");
+			document.getElementById("task1Page").style.display = "none";
+			// document.getElementById("continue").style.display = "none";
+			document.getElementById("task2Page").style.display = "block";
+			document.getElementById("foodImage").src= image;
+			halt();
+				}
+			else if(subgoal=="task2Done"){
+			modify(p,"subgoal","task31");
+			document.getElementById("task2Page").style.display = "none";
+			document.getElementById("task3-1Page").style.display = "block";
+			$("#task3Page CTAT-done-button").removeClass("CTAT--incorrect");
+			document.getElementById("ctatdiv31").src= image;
+			halt();
+			}
+			else if(subgoal=="task31Done"){
+			modify(p,"subgoal","task32");
+			document.getElementById("task3-1Page").style.display = "none";
+			document.getElementById("task3-2Page").style.display = "block";
+			document.getElementById("ctatdiv32").src= image;
+			halt();
+			}
+			else if(subgoal=="task32Done"){
+			
+			modify(p,"subgoal","task33");
+			document.getElementById("task3-2Page").style.display = "none";
+			document.getElementById("task3-3Page").style.display = "block";
+			document.getElementById("ctatdiv33").src= image;
+				var totalHealthy = addpoints.reduce((a, b) => a + b, 0);
+				var totalunhealthy = subpoints.reduce((a, b) => a + b, 0);
+				assert(new TPA(th1, "UpdateTextArea", totalHealthy));
+				assert(new TPA(tu1, "UpdateTextArea", totalunhealthy));
+			halt();
+			}
+       	}
+		
+	}
+}
+
+rule Done {
+	salience: -2;
+	when{
+		p: Problem p.subgoal == "task33Done" {subgoal: subgoal};
+	}
+	then{
+				let predictedSAI = {
+           		 selection: "done",
+          		 action: "ButtonPressed",
+            	 input: "don't_care"
+        	};
+       		 if(checkSAI(predictedSAI)){
+       		 	//document.getElementById("finalpopup").style.display = "block";
+           		 modify(p, "done", true);
+            	 setSuccessOrBugMsg("Congratulations! You have found a solution.");
+                 halt();
+        		} else{
+            	backtrack();
+            }
+	}
+}
+
+//FoodDataRule
